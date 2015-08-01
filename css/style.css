@@ -16,6 +16,9 @@ html, body {
   color:red;
 }
 
+.text-white{
+  color:white;
+}
 /* padded section */
 .pad-section {
   padding: 50px 0;
