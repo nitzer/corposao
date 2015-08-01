@@ -12,6 +12,10 @@ html, body {
   width: 100%;
 }
 
+.mainColor{
+  color:red;
+}
+
 /* padded section */
 .pad-section {
   padding: 50px 0;
@@ -50,9 +54,10 @@ html, body {
 }
 
 #services {
-  background-color: #306d9f;
+  background-color: #333;
   color: #ffffff;
 }
+
 #services .glyphicon {
   border: 2px solid #FFFFFF;
   border-radius: 50%;
