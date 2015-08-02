@@ -64,7 +64,7 @@ body {
 #about {
 }
 
-#services {
+#services, #contact {
   background-color: #333;
   color: #ffffff;
 }
