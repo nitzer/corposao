@@ -1,12 +1,19 @@
 <?php
-header('Content-type: application/xml');
+header('Content-type: application/json');
 $handle = fopen($_REQUEST['url'], "r");
 
-if ($handle) {
-    while (!feof($handle)) {
-        $buffer = fgets($handle, 4096);
-        echo $buffer;
-    }
-    fclose($handle);
+class XmlToJson {
+	public function Parse ($url) {
+		$fileContents= file_get_contents($url);
+		$fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
+		$fileContents = trim(str_replace('"', "'", $fileContents));
+		$simpleXml = simplexml_load_string($fileContents);
+		$json = json_encode($simpleXml);
+		return $json;
+	}
 }
+
+echo XmlToJson::Parse($_REQUEST['url']);
+
+
 ?>

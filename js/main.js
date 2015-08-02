@@ -27,33 +27,28 @@ function trim_words(theString, numWords) {
 $(document).ready(function (){
 
 
-    jQuery.getFeed({
+    $.get( 'proxy.php', { url : 'http://corposao.blogspot.com/feeds/posts/default' },
+      function(feed) {
+        jQuery('#feedItems').html("");
+        var html = '';
 
-        url: 'proxy.php?url=http://corposao.blogspot.com/feeds/posts/default',
-        success: function(feed) {
-            jQuery('#feedItems').html("");
-            var html = '';
-            
-            for(var i = 0; i < feed.items.length && i < 4; i++) {
-                
-                var item = feed.items[i];
-                
-                html += 
-                  '<div class="col-sm-6">' +
-                    '<div class="panel panel-default">' +
-                      '<div class="panel-body rssDescription">' + 
-                        '<h4>' + item.title + '</h4>' +
-                        trim_words(strip(item.description), 50) + ' ...</div>' +
-                      '<div class="panel-footer"><a class="btn btn-primary" href="'+item.link+'">Seguir Leyendo</a></div>' +
-                    '</div>' +
-                  '</div>';
+        for(var i = 0; i < feed.entry.length && i < 4; i++) {
+          
+          var item = feed.entry[i];
+          html += 
+            '<div class="col-sm-6">' +
+              '<div class="panel panel-default">' +
+                '<div class="panel-body rssDescription">' + 
+                  '<h4>' + item.title + '</h4>' +
+                  trim_words(strip(item.content), 70) + ' ...</div>' +
+                '<div class="panel-footer"><a class="btn btn-primary pull-right" target="_blank" href="'+item.link[4]["@attributes"].href+'">Seguir Leyendo</a><br clear="all" /></div>' +
+              '</div>' +
+            '</div>';
 
-                console.log(item);
-            }
-            
-            jQuery('#feedItems').append(html);
-        }    
-    });
+        }
+        jQuery('#feedItems').append(html);
+      });
+   
 
 
   // create a LatLng object containing the coordinate for the center of the map

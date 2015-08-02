@@ -12,6 +12,10 @@ html, body {
   width: 100%;
 }
 
+body {
+  font-family: 'Abel', sans-serif;
+}
+
 .rssDescription{
   height:220px;
 }
