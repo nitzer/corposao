@@ -31,17 +31,16 @@ $(document).ready(function (){
       function(feed) {
         jQuery('#feedItems').html("");
         var html = '';
-
-        for(var i = 0; i < feed.entry.length && i < 4; i++) {
+        console.log(feed);
+        window.feed = feed;
+        for(var i = 0; i < feed.entry.length && i < 6; i++) {
           
           var item = feed.entry[i];
+          console.log(item);
           html += 
-            '<div class="col-sm-6">' +
-              '<div class="panel panel-default">' +
-                '<div class="panel-body rssDescription">' + 
-                  '<h4>' + item.title + '</h4>' +
-                  trim_words(strip(item.content), 70) + ' ...</div>' +
-                '<div class="panel-footer"><a class="btn btn-primary pull-right" target="_blank" href="'+item.link[4]["@attributes"].href+'">Seguir Leyendo</a><br clear="all" /></div>' +
+            '<div class="col-sm-4">' +
+              '<div class="thumbnail" >' +
+              '<img class="img-responsive" src="'+ item.link[1]['@attributes']['href']+'" alt="'+item.title+'" >' +
               '</div>' +
             '</div>';
 
@@ -53,7 +52,7 @@ $(document).ready(function (){
 
   // create a LatLng object containing the coordinate for the center of the map
   
-  var latlng = new google.maps.LatLng(-34.6277202,-58.4466281);
+  var latlng = new google.maps.LatLng(-34.5477797,-58.471559);
 
   // prepare the map properties
   var options = {
