@@ -27,7 +27,7 @@ function trim_words(theString, numWords) {
 $(document).ready(function (){
 
 
-    $.get( 'proxy.php', { url : 'http://corposao.blogspot.com/feeds/posts/default' },
+    $.get( 'proxy.php', { url : 'https://www.flickr.com/services/feeds/photos_public.gne?id=138398754@N06&lang=es-us&format=atom' },
       function(feed) {
         jQuery('#feedItems').html("");
         var html = '';
