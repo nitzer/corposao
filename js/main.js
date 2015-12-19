@@ -33,7 +33,7 @@ $(document).ready(function (){
         var html = '';
         console.log(feed);
         window.feed = feed;
-        for(var i = 0; i < feed.entry.length && i < 6; i++) {
+        for(var i = 0; i < feed.entry.length && i < 9; i++) {
           
           var item = feed.entry[i];
           console.log(item);

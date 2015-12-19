@@ -110,3 +110,6 @@ footer .glyphicon {
 footer .glyphicon:hover {
   color: #306d9f;
 }
+.services-list li{
+  font-size: 22px;
+}
